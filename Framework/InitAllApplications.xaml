@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1071.33333333333,6034.66666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1071.33333333333,6239.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -41,7 +41,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="27">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="54">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -69,9 +69,13 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1036.66666666667,5930" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="1036.66666666667,6134.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="CurrentMonthFull" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -79,13 +83,13 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="994.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
-    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="994.666666666667,5672.66666666667" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.concur.com/">
+    <ui:OpenBrowser CommunicationMethod="{x:Null}" Hidden="{x:Null}" NewSession="{x:Null}" Private="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="994.666666666667,5877.33333333333" sap2010:WorkflowViewState.IdRef="OpenBrowser_1" Url="https://www.concur.com/">
       <ui:OpenBrowser.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="960.666666666667,5570" sap2010:WorkflowViewState.IdRef="Sequence_12">
+          <Sequence sap:VirtualizedContainerService.HintSize="960.666666666667,5774.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_12">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="CurrentMoYr" />
             </Sequence.Variables>
@@ -246,10 +250,7 @@
                   <ActivityFunc x:TypeArguments="x:Boolean">
                     <ui:UiElementExists Exists="{x:Null}" DisplayName="Element Exists 'DIV'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
                       <ui:UiElementExists.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ecc0ab2c-8306-4910-8f04-8a0102c26aa0" InformativeScreenshot="bd8c2ee0e59cb68827e1648382783917" Selector="&lt;html app='chrome.exe' title='Expense Center' /&gt;&#xA;&lt;webctrl tag='DIV' aaname='Manage Expenses' innertext='Manage Expenses' title='Expense Center' /&gt;&#xA;">
-                          <ui:Target.TimeoutMS>
-                            <InArgument x:TypeArguments="x:Int32" />
-                          </ui:Target.TimeoutMS>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ecc0ab2c-8306-4910-8f04-8a0102c26aa0" InformativeScreenshot="bd8c2ee0e59cb68827e1648382783917" Selector="&lt;html app='chrome.exe' title='Expense Center' /&gt;&#xA;&lt;webctrl tag='DIV' aaname='Manage Expenses' innertext='Manage Expenses' title='Expense Center' /&gt;&#xA;" TimeoutMS="5000">
                           <ui:Target.WaitForReady>
                             <InArgument x:TypeArguments="ui:WaitForReady" />
                           </ui:Target.WaitForReady>
@@ -303,7 +304,7 @@
                 </If.Then>
               </If>
             </Sequence>
-            <Sequence DisplayName="Add Expenses to Current Report" sap:VirtualizedContainerService.HintSize="918.666666666667,2338.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_16">
+            <Sequence DisplayName="Add Expenses to Current Report" sap:VirtualizedContainerService.HintSize="918.666666666667,2543.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_16">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Name="SortAsc" />
                 <Variable x:TypeArguments="x:String" Name="AvailExpenseMo" />
@@ -362,13 +363,22 @@
                   </Sequence>
                 </If.Then>
               </If>
-              <Sequence sap:VirtualizedContainerService.HintSize="876.666666666667,460" sap2010:WorkflowViewState.IdRef="Sequence_21">
+              <Sequence sap:VirtualizedContainerService.HintSize="876.666666666667,664.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_21">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_9">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[CurrentMonthFull]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[date.now.ToString("MMMM")]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;The current month is: &quot;+CurrentMonthFull]" />
                 <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:String">[CurrentMo]</OutArgument>
@@ -528,7 +538,7 @@
                               </ui:CursorPosition>
                             </ui:Click.CursorPosition>
                             <ui:Click.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="902d8331-2866-40e8-a111-48262b6ddc24" InformativeScreenshot="853294f17afb76082f94649ba95fa438" Selector="&lt;html app='chrome.exe' title='Expense Center' /&gt;&lt;webctrl parentid='ReportTile*' tag='DIV' innertext='*Marketing*' /&gt;">
+                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="902d8331-2866-40e8-a111-48262b6ddc24" InformativeScreenshot="853294f17afb76082f94649ba95fa438" Selector="&lt;html app='chrome.exe' title='Expense Center' /&gt;&lt;webctrl tag='DIV' class='cnqr-inner' innertext='*{{CurrentMonthFull}}*Expenses *' /&gt;">
                                 <ui:Target.TimeoutMS>
                                   <InArgument x:TypeArguments="x:Int32" />
                                 </ui:Target.TimeoutMS>

@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>6182,10108.6666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1071.33333333333,7855.33333333333</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -46,7 +46,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="26">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="28">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -73,9 +73,11 @@
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="6192,10004" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1006.66666666667,7750.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="s:String[]" Name="filePath" />
       <Variable x:TypeArguments="x:String" Default="C:\Users\MatthewHarden\Documents\UiPath\NetHealthExpenseReports\Expenses\WPEngine $179.pdf" Name="currentFile" />
@@ -95,9 +97,9 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="6150,55.3333333333333" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="6150,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Processing Transaction &quot;+in_TransactionItem]" />
-    <Sequence DisplayName="Read Expense Report" sap:VirtualizedContainerService.HintSize="6150,4740" sap2010:WorkflowViewState.IdRef="Sequence_5">
+    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="964.666666666667,55.3333333333333" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="964.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Processing Transaction &quot;+in_TransactionItem]" />
+    <Sequence DisplayName="Read Expense Report" sap:VirtualizedContainerService.HintSize="964.666666666667,2180" sap2010:WorkflowViewState.IdRef="Sequence_5">
       <Sequence.Variables>
         <Variable x:TypeArguments="sd:DataTable" Name="ConcurDT" />
       </Sequence.Variables>
@@ -106,8 +108,8 @@
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:GetEnvironmentVariable VariableValue="{x:Null}" DisplayName="Get Environment Variable" sap:VirtualizedContainerService.HintSize="6108,58.6666666666667" sap2010:WorkflowViewState.IdRef="GetEnvironmentVariable_1" Variable="CurrentDirectory" />
-      <Assign sap:VirtualizedContainerService.HintSize="6108,62" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <ui:GetEnvironmentVariable VariableValue="{x:Null}" DisplayName="Get Environment Variable" sap:VirtualizedContainerService.HintSize="614.666666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="GetEnvironmentVariable_1" Variable="CurrentDirectory" />
+      <Assign sap:VirtualizedContainerService.HintSize="614.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
           <OutArgument x:TypeArguments="s:String[]">[filePath]</OutArgument>
         </Assign.To>
@@ -115,7 +117,7 @@
           <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(“Expenses”, "*.pdf")]</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign sap:VirtualizedContainerService.HintSize="6108,62" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign sap:VirtualizedContainerService.HintSize="614.666666666667,62" sap2010:WorkflowViewState.IdRef="Assign_2">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[currentFile]</OutArgument>
         </Assign.To>
@@ -123,11 +125,11 @@
           <InArgument x:TypeArguments="x:String">[filepath.first]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[currentFile]" sap:VirtualizedContainerService.HintSize="6108,58.6666666666667" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[ExpenseText]" />
-      <If Condition="[ExpenseText.contains(&quot;WP Engine&quot;)]" DisplayName="Determine Vendor" sap:VirtualizedContainerService.HintSize="6108,2612.66666666667" sap2010:WorkflowViewState.IdRef="If_1">
+      <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[currentFile]" sap:VirtualizedContainerService.HintSize="614.666666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[ExpenseText]" />
+      <If Condition="[ExpenseText.contains(&quot;WP Engine&quot;)]" DisplayName="Determine Vendor" sap:VirtualizedContainerService.HintSize="614.666666666667,52.6666666666667" sap2010:WorkflowViewState.IdRef="If_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
@@ -719,9 +721,9 @@
           </If>
         </If.Else>
       </If>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="6108,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Vendor is: &quot;+Vendor]" />
-      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[ConcurDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="6108,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Settings" WorkbookPath="Data\Config.xlsx" />
-      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ConcurDT]" DisplayName="Find Vendor related Concur Variables" sap:VirtualizedContainerService.HintSize="6108,1332.66666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="614.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Vendor is: &quot;+Vendor]" />
+      <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[ConcurDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="614.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Settings" WorkbookPath="Data\Config.xlsx" />
+      <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[ConcurDT]" DisplayName="Find Vendor related Concur Variables" sap:VirtualizedContainerService.HintSize="614.666666666667,1332.66666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
         <ui:ForEachRow.Body>
           <ActivityAction x:TypeArguments="sd:DataRow">
             <ActivityAction.Argument>
@@ -821,19 +823,19 @@
         </sap:WorkflowViewStateService.ViewState>
       </ui:ForEachRow>
     </Sequence>
-    <Sequence sap:VirtualizedContainerService.HintSize="6150,4823.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence sap:VirtualizedContainerService.HintSize="964.666666666667,5130" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Expense'" sap:VirtualizedContainerService.HintSize="922.666666666667,4731.33333333333" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="6882a825d972d1d50de8e6176b613dc3" Selector="&lt;html app='chrome.exe' title='Expense Center' /&gt;">
+      <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="Chrome" DisplayName="Attach Browser 'chrome.exe Expense'" sap:VirtualizedContainerService.HintSize="922.666666666667,5038" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="6882a825d972d1d50de8e6176b613dc3" Selector="&lt;html app='chrome.exe' title='Expense Center' /&gt;">
         <ui:BrowserScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="888.666666666667,4585.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_11">
+            <Sequence sap:VirtualizedContainerService.HintSize="888.666666666667,4892" sap2010:WorkflowViewState.IdRef="Sequence_11">
               <Sequence.Variables>
                 <Variable x:TypeArguments="x:Boolean" Default="False" Name="Found" />
                 <Variable x:TypeArguments="s:String[]" Name="FilePathArr" />
@@ -1029,19 +1031,40 @@
                   </ui:TypeInto.Target>
                 </ui:TypeInto>
               </Sequence>
-              <Sequence DisplayName="Retrieve Doc Name and File Path" sap:VirtualizedContainerService.HintSize="846.666666666667,767.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence DisplayName="Retrieve Doc Name and File Path" sap:VirtualizedContainerService.HintSize="846.666666666667,1074" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="ProjFilePath" />
+                  <Variable x:TypeArguments="x:String" Name="FullFilePath" />
+                </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_60">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[ProjFilePath]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Directory.GetCurrentDirectory]</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[ProjFilePath]" />
+                <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_61">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[FullFilePath]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[ProjFilePath+"\"+currentFile]</InArgument>
+                  </Assign.Value>
+                </Assign>
                 <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_21">
                   <Assign.To>
                     <OutArgument x:TypeArguments="s:String[]">[FilePathArr]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="s:String[]">[currentFile.split("\"c)]</InArgument>
+                    <InArgument x:TypeArguments="s:String[]">[FullFilePath.split("\"c)]</InArgument>
                   </Assign.Value>
                 </Assign>
                 <Assign sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_24">
@@ -1215,7 +1238,7 @@
                             </ui:Target>
                           </ui:Click.Target>
                         </ui:Click>
-                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON  ext-gen2949'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                        <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON  ext-gen2949'" sap:VirtualizedContainerService.HintSize="436.666666666667,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
                           <ui:Click.CursorPosition>
                             <ui:CursorPosition Position="Center">
                               <ui:CursorPosition.OffsetX>
